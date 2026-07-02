@@ -2,10 +2,25 @@ package com.example.foodorderrework.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+object AppColor {
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+    // Brand & Action
+    val Primary = Color(0xFF22C55E)
+    val OnPrimary = Color(0xFFFFFFFF)
+    val PrimaryContainer = Color(0xFFDCFCE7)
+
+    // Typography
+    val TextPrimary = Color(0xFF1A1C1E)
+    val TextSecondary = Color(0xFF41474D)
+    val TextOnDark = Color(0xFFFFFFFF)
+
+    // Surface & Layout
+    val Background = Color(0xFFFAF8FF)
+    val Surface = Color(0xFFFFFFFF)
+    val Outline = Color(0xFFE1E2E9)
+
+    // Status
+    val Success = Color(0xFF178F44)
+    val Error = Color(0xFFBB2222)
+    val Warning = Color(0xFFFF9800)
+}
