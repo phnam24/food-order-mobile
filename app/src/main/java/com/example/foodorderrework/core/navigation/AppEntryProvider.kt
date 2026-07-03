@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.NavKey
+import com.example.foodorderrework.feature.splash.ui.FoodOrderSplashRoute
 
 @Composable
 fun appEntryProvider(
@@ -12,6 +13,12 @@ fun appEntryProvider(
     return { key ->
         when (key) {
             StartRoute -> NavEntry(key){
+                FoodOrderSplashRoute {
+                    backStack.navigate(LoginRoute)
+                }
+            }
+
+            LoginRoute -> NavEntry(key) {
 
             }
 
