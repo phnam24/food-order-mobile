@@ -14,6 +14,11 @@ fun NavBackStack<NavKey>.navigate(route: NavKey) {
     add(route)
 }
 
+fun NavBackStack<NavKey>.replaceWithRoute(route: NavKey) {
+    clear()
+    add(route)
+}
+
 fun NavBackStack<NavKey>.goBack() {
     if (size > 1) {
         removeLastOrNull()

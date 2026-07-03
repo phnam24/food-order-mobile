@@ -4,45 +4,38 @@ import androidx.compose.ui.unit.dp
 
 object AppDimen {
 
-    // Margins
-    val ScreenHorizontalPadding = 16.dp
-    val ScreenVerticalPadding = 16.dp
+    val ScreenHorizontalPadding = 20.dp
+    val ScreenVerticalPadding = 20.dp
+    val SpaceExtraSmall = 6.dp
+    val SpaceSmall = 12.dp
+    val SpaceMedium = 16.dp
+    val SpaceLarge = 24.dp
+    val SpaceExtraLarge = 32.dp
+    val SpaceSection = 32.dp
+    val SpaceItem = 16.dp
+    val SpaceItemLarge = 20.dp
 
-    // Spacing
-    val SpaceExtraSmall = 4.dp
-    val SpaceSmall = 8.dp
-    val SpaceMedium = 12.dp
-    val SpaceLarge = 16.dp
-    val SpaceExtraLarge = 24.dp
-    val SpaceSection = 24.dp
-    val SpaceItem = 12.dp
-    val SpaceItemLarge = 16.dp
-
-    // Radius
-    val RadiusSmall = 8.dp
-    val RadiusMedium = 12.dp
-    val RadiusLarge = 16.dp
-    val RadiusCard = 16.dp
-    val RadiusButton = 12.dp
+    val RadiusSmall = 12.dp
+    val RadiusMedium = 16.dp
+    val RadiusLarge = 24.dp
+    val RadiusCard = 24.dp
+    val RadiusButton = 16.dp
     val RadiusButtonFull = 100.dp
-    val RadiusInput = 12.dp
+    val RadiusInput = 16.dp
 
-    // Component Size
-    val PrimaryButtonHeight = 54.dp
-    val PrimaryButtonMinHeight = 52.dp
-    val PrimaryButtonMaxHeight = 56.dp
+    val PrimaryButtonHeight = 60.dp
+    val PrimaryButtonMinHeight = 56.dp
+    val PrimaryButtonMaxHeight = 64.dp
 
-    val TopAppBarHeight = 64.dp
-    val BottomNavBarHeight = 80.dp
+    val TopAppBarHeight = 72.dp
+    val BottomNavBarHeight = 88.dp
 
     val BorderWidth = 1.dp
-    val CardElevation = 2.dp
+    val CardElevation = 4.dp
 
-    // Common Icon Size
-    val IconSmall = 18.dp
-    val IconMedium = 24.dp
-    val IconLarge = 32.dp
+    val IconSmall = 24.dp
+    val IconMedium = 32.dp
+    val IconLarge = 40.dp
 
-    // Common Image/Card
     val StoreCardImageRatio = 4f / 3f
 }
