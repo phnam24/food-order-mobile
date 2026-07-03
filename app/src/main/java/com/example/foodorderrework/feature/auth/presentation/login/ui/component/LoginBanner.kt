@@ -29,7 +29,7 @@ fun LoginBanner() {
         contentAlignment = Alignment.BottomStart,
         modifier = Modifier
             .fillMaxWidth()
-            .height(265.dp),
+            .height(256.dp),
     ) {
         AsyncImage(
             model = imgUrl,
