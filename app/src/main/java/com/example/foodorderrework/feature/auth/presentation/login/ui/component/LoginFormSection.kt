@@ -37,6 +37,7 @@ import com.example.foodorderrework.ui.theme.AppType
 fun LoginFormSection(
     email: String,
     password: String,
+    errorMessage: String?,
     isPasswordVisible: Boolean,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
@@ -71,6 +72,10 @@ fun LoginFormSection(
         )
 
         Spacer(modifier = Modifier.height(AppDimen.SpaceLarge))
+
+        errorMessage?.let {
+            ErrorInputText(errorMessage)
+        }
 
         FoodInputTextField(
             label = "Email",
@@ -167,4 +172,16 @@ fun PasswordInputField(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(AppDimen.RadiusInput)
     )
+}
+
+@Composable
+fun ErrorInputText(
+    message: String
+) {
+    Text(
+        text = message,
+        style = AppType.BodyLarge,
+        color = AppColor.Error
+    )
+    Spacer(modifier = Modifier.height(AppDimen.SpaceExtraSmall))
 }

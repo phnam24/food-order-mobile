@@ -10,29 +10,70 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Snackbar
-import androidx.compose.material3.Surface
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.foodorderrework.feature.auth.presentation.login.state.LoginUiState
 import com.example.foodorderrework.feature.auth.presentation.login.ui.component.ErrorMessageBar
 import com.example.foodorderrework.feature.auth.presentation.login.ui.component.LoginBanner
 import com.example.foodorderrework.feature.auth.presentation.login.ui.component.LoginFormSection
 import com.example.foodorderrework.feature.auth.presentation.login.ui.component.SocialLoginSection
+import com.example.foodorderrework.feature.auth.presentation.login.viewmodel.LoginEvent
+import com.example.foodorderrework.feature.auth.presentation.login.viewmodel.LoginScreenViewModel
 import com.example.foodorderrework.ui.theme.AppColor
 import com.example.foodorderrework.ui.theme.AppDimen
 import com.example.foodorderrework.ui.theme.AppType
 
 @Composable
+fun LoginRoute(
+    viewModel: LoginScreenViewModel = hiltViewModel(),
+    onHomeNavigate: () -> Unit,
+    onRegisterNavigate: () -> Unit
+) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val snackBarHostState = remember { SnackbarHostState() }
+
+    LaunchedEffect(Unit) {
+        viewModel.event.collect { event ->
+            when (event) {
+                LoginEvent.NavigateToHome -> {
+                    onHomeNavigate()
+                }
+
+                is LoginEvent.ShowSnackBar -> {
+                    snackBarHostState.showSnackbar(event.message)
+                }
+            }
+        }
+    }
+    
+    LoginScreen(
+        uiState = uiState,
+        snackBarHostState = snackBarHostState,
+        onEmailChange = viewModel::onEmailChange,
+        onPasswordChange = viewModel::onPasswordChange,
+        onPasswordVisibilityToggle = viewModel::onPasswordVisibilityToggle,
+        onLoginClick = viewModel::onLoginClick,
+        onRegisterTextClick = onRegisterNavigate,
+    )
+}
+
+@Composable
 fun LoginScreen(
     uiState: LoginUiState,
+    snackBarHostState: SnackbarHostState,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
     onPasswordVisibilityToggle: () -> Unit,
@@ -41,8 +82,10 @@ fun LoginScreen(
 ) {
     Scaffold(
         snackbarHost = {
-            if ( uiState.errorMessage.isNotBlank()) {
-                ErrorMessageBar(uiState.errorMessage)
+            SnackbarHost(hostState = snackBarHostState) { snackBarData ->
+                ErrorMessageBar(
+                    message = snackBarData.visuals.message
+                )
             }
         }
     ) { paddingValues ->
@@ -59,6 +102,7 @@ fun LoginScreen(
                 LoginFormSection(
                     email = uiState.email,
                     password = uiState.password,
+                    errorMessage = uiState.errorMessage,
                     isPasswordVisible = uiState.isPasswordVisible,
                     onEmailChange = onEmailChange,
                     onPasswordChange = onPasswordChange,

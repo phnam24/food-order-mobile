@@ -12,7 +12,7 @@ object MockUsers {
             phone = "0901111111",
             avatarUrl = "https://example.com/avatar-an.png",
             role = Role.CUSTOMER,
-            password = "user@123456",
+            password = "123456",
         ),
         User(
             id = "user_2",
@@ -21,7 +21,7 @@ object MockUsers {
             phone = "0902222222",
             avatarUrl = "https://example.com/avatar-binh.png",
             role = Role.CUSTOMER,
-            password = "user@123456",
+            password = "123456",
         ),
         User(
             id = "user_3",
@@ -30,7 +30,7 @@ object MockUsers {
             phone = "0903333333",
             avatarUrl = "https://example.com/avatar-cuong.png",
             role = Role.CUSTOMER,
-            password = "user@123456",
+            password = "123456",
         ),
         User(
             id = "user_4",
@@ -39,7 +39,7 @@ object MockUsers {
             phone = "0904444444",
             avatarUrl = "https://example.com/avatar-dung.png",
             role = Role.STORE_OWNER,
-            password = "user@123456",
+            password = "123456",
         ),
         User(
             id = "user_5",
@@ -48,9 +48,7 @@ object MockUsers {
             phone = "0905555555",
             avatarUrl = "https://example.com/avatar-admin.png",
             role = Role.ADMIN,
-            password = "admin@123456",
+            password = "123456",
         ),
     )
-
-    var currentUser: User? = users.firstOrNull()
 }
