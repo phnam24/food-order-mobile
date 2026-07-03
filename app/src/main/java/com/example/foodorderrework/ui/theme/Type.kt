@@ -6,29 +6,76 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-// Set of Material typography styles to start with
-val Typography = Typography(
-    bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
+object AppType {
+    val Font = FontFamily.SansSerif
+
+    val DisplayLogo = TextStyle(
+        fontFamily = Font,
+        fontSize = 34.sp,
+        fontWeight = FontWeight.Bold,
+        lineHeight = 40.sp
+    )
+
+    val HeadlineLarge = TextStyle(
+        fontFamily = Font,
+        fontSize = 24.sp,
+        fontWeight = FontWeight.Bold,
+        lineHeight = 32.sp
+    )
+
+    val HeadlineMedium = TextStyle(
+        fontFamily = Font,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.SemiBold,
+        lineHeight = 28.sp
+    )
+
+    val HeadlineSmall = TextStyle(
+        fontFamily = Font,
+        fontSize = 18.sp,
+        fontWeight = FontWeight.SemiBold,
+        lineHeight = 24.sp
+    )
+
+    val BodyLarge = TextStyle(
+        fontFamily = Font,
         fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
-    )
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
-    ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
+        lineHeight = 24.sp
     )
-    */
+
+    val BodyMedium = TextStyle(
+        fontFamily = Font,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Normal,
+        lineHeight = 20.sp
+    )
+
+    val LabelLarge = TextStyle(
+        fontFamily = Font,
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Medium,
+        lineHeight = 22.sp
+    )
+
+    val LabelSmall = TextStyle(
+        fontFamily = Font,
+        fontSize = 12.sp,
+        fontWeight = FontWeight.Medium,
+        lineHeight = 16.sp
+    )
+}
+
+val AppTypography = Typography(
+    displayLarge = AppType.DisplayLogo,
+
+    headlineLarge = AppType.HeadlineLarge,
+    headlineMedium = AppType.HeadlineMedium,
+    headlineSmall = AppType.HeadlineSmall,
+
+    bodyLarge = AppType.BodyLarge,
+    bodyMedium = AppType.BodyMedium,
+
+    labelLarge = AppType.LabelLarge,
+    labelSmall = AppType.LabelSmall
 )
