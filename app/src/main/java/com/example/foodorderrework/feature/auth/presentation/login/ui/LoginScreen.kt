@@ -29,7 +29,7 @@ import com.example.foodorderrework.feature.auth.presentation.login.state.LoginUi
 import com.example.foodorderrework.feature.auth.presentation.login.ui.component.ErrorMessageBar
 import com.example.foodorderrework.feature.auth.presentation.login.ui.component.LoginBanner
 import com.example.foodorderrework.feature.auth.presentation.login.ui.component.LoginFormSection
-import com.example.foodorderrework.feature.auth.presentation.login.ui.component.SocialLoginSection
+import com.example.foodorderrework.feature.auth.presentation.common_component.SocialLoginSection
 import com.example.foodorderrework.feature.auth.presentation.login.viewmodel.LoginEvent
 import com.example.foodorderrework.feature.auth.presentation.login.viewmodel.LoginScreenViewModel
 import com.example.foodorderrework.ui.theme.AppColor
@@ -111,7 +111,7 @@ fun LoginScreen(
                 )
 
                 SocialLoginSection(
-                    onRegisterTextClick = onRegisterTextClick
+                    onButtonTextClick = onRegisterTextClick
                 )
             }
         }

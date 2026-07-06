@@ -1,4 +1,4 @@
-package com.example.foodorderrework.feature.auth.presentation.login.ui.component
+package com.example.foodorderrework.feature.auth.presentation.common_component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -31,7 +30,8 @@ import com.example.foodorderrework.ui.theme.AppDimen
 import com.example.foodorderrework.ui.theme.AppType
 @Composable
 fun SocialLoginSection(
-    onRegisterTextClick: () -> Unit
+    isLogin: Boolean = true,
+    onButtonTextClick: () -> Unit
 ) {
     Column(
         verticalArrangement = Arrangement.Center,
@@ -52,7 +52,7 @@ fun SocialLoginSection(
             )
 
             Text(
-                text = "HOẶC ĐĂNG NHẬP BẰNG",
+                text = "HOẶC ĐĂNG TIẾP TỤC VỚI",
                 style = AppType.LabelSmall,
                 modifier = Modifier
                     .padding(AppDimen.SpaceSmall),
@@ -77,15 +77,15 @@ fun SocialLoginSection(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
-                text = "Chưa có tài khoản?",
+                text = if (isLogin) "Chưa có tài khoản?" else "Đã có tài khoản?",
                 style = AppType.BodyLarge
             )
 
             TextButton(
-                onClick = onRegisterTextClick
+                onClick = onButtonTextClick
             ) {
                 Text(
-                    text = "Đăng ký ngay",
+                    text = if (isLogin) "Đăng ký ngay" else "Đăng nhập ngay",
                     style = AppType.LabelLarge,
                     color = AppColor.Primary
                 )
